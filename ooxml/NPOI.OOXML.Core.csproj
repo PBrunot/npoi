@@ -31,6 +31,7 @@
     <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="all" />
     <PackageReference Include="SkiaSharp"/>
     <PackageReference Include="System.Security.Cryptography.Xml" />
+    <PackageReference Include="Microsoft.Build.Tasks.Git" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>

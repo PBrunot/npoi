@@ -65,7 +65,7 @@ namespace NPOI.SS.Util
                 number = -number;
 
             int decimalPlaces = number.DecimalPlaces;
-            int realSigDigits = number.SignifigantDigits;
+            int realSigDigits = number.SignificantDigits;
             int integerPlaces = realSigDigits - decimalPlaces;
 
             if (integerPlaces >= significantDigits)

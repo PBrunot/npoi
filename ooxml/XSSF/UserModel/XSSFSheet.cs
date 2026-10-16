@@ -6753,8 +6753,7 @@ namespace NPOI.XSSF.UserModel
         {
             IFont ift = GetWorkbook().GetStylesSource().GetFontAt(0);
             using SKFont ft = SheetUtil.IFont2Font(ift);
-            using var paint = new SKPaint { Typeface = ft.Typeface, TextSize = ft.Size };
-            double MDW = paint.MeasureText("0") + 1; //MaximumDigitWidth
+            double MDW = ft.MeasureText("0") + 1; //MaximumDigitWidth
 
             worksheet.sheetFormatPr.defaultColWidth = Width / Units.EMU_PER_PIXEL / MDW;
             worksheet.cols.Clear();

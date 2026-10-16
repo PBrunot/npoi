@@ -193,8 +193,7 @@ namespace NPOI.XSSF.UserModel
         ) : this() {
             IFont   ift = ((XSSFWorkbook)Sheet.Workbook).GetStylesSource().GetFontAt(0);
             using SKFont ft  = SheetUtil.IFont2Font(ift);
-            using var paint = new SKPaint { Typeface = ft.Typeface, TextSize = ft.Size };
-            double  MDW = paint.MeasureText("0") + 1;                                               //MaximumDigitWidth
+            double  MDW = ft.MeasureText("0") + 1;                                               //MaximumDigitWidth
 
             double colwidth;                                                                //default or base column width (in pixel)
             var width = ((XSSFSheet)Sheet).worksheet.sheetFormatPr.defaultColWidth;         //string length with padding

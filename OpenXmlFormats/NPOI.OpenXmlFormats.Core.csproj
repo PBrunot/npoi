@@ -17,6 +17,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="all" />
     <PackageReference Include="ZString" />
+    <PackageReference Include="Microsoft.Build.Tasks.Git" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>

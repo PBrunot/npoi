@@ -78,8 +78,7 @@ namespace TestCases.HSSF.UserModel
         public void TestGetFontMetrics()
         {
             SKFont f = graphics.Font;
-            using var paint = new SKPaint { Typeface = f.Typeface, TextSize = f.Size };
-            float width = paint.MeasureText("X");
+            float width = f.MeasureText("X");
             ClassicAssert.IsTrue(width > 0, "Expected font metrics width > 0, but got: " + width);
             ClassicAssert.IsTrue(f.Size > 0);
             ClassicAssert.IsFalse(f.Typeface.IsBold);

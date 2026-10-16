@@ -495,8 +495,7 @@ namespace TestCases.SS.UserModel
             //TextLayout layout = new TextLayout(str.getIterator(), fontRenderContext);
             //width = ((layout.getBounds().getWidth() / 1) / 8);
             using SKFont wfont = SheetUtil.IFont2Font(font);
-            using var paint = new SKPaint { Typeface = wfont.Typeface, TextSize = wfont.Size };
-            width = paint.MeasureText(txt);
+            width = wfont.MeasureText(txt);
             return width;
         }
 
@@ -504,8 +503,7 @@ namespace TestCases.SS.UserModel
         {
             double width;
             using SKFont wfont = SheetUtil.IFont2Font(font);
-            using var paint = new SKPaint { Typeface = wfont.Typeface, TextSize = wfont.Size };
-            width = paint.MeasureText(txt);
+            width = wfont.MeasureText(txt);
             return width;
         }
 

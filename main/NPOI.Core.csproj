@@ -29,6 +29,7 @@
     <PackageReference Include="SkiaSharp"/>
     <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies"/>
     <PackageReference Include="ZString" />
+    <PackageReference Include="Microsoft.Build.Tasks.Git" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' != 'net8.0' And '$(TargetFramework)' != 'net10.0' ">
