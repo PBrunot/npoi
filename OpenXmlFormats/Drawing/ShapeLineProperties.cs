@@ -435,7 +435,6 @@ namespace NPOI.OpenXmlFormats.Dml
         internal static CT_DashStopList Parse(XmlNode node, XmlNamespaceManager namespaceManager)
         {
             CT_DashStopList ctObj = new CT_DashStopList();
-            //ctObj.dsField = new List<CT_DashStop>();
             foreach(XmlNode childNode in node.ChildNodes)
             {
                 ctObj.ds.Add(CT_DashStop.Parse(childNode, namespaceManager));
@@ -473,12 +472,15 @@ namespace NPOI.OpenXmlFormats.Dml
 
         internal void Write(StreamWriter sw, string nodeName)
         {
-            sw.Write(string.Format("<a:{0}>", nodeName));
-            foreach(var child in this.ds)
+            if(this.ds.Count != 0)
             {
-                child.Write(sw, "ds");
+                sw.Write(string.Format("<a:{0}>", nodeName));
+                foreach(var child in this.ds)
+                {
+                    child.Write(sw, "ds");
+                }
+                sw.Write(string.Format("</a:{0}>", nodeName));
             }
-            sw.Write(string.Format("</a:{0}>", nodeName));
         }
     }
 
@@ -547,7 +549,6 @@ namespace NPOI.OpenXmlFormats.Dml
             ctObj.algnFieldSpecified = node.Attributes["algn"] != null;
             if (ctObj.algnFieldSpecified)
                 ctObj.algn = (ST_PenAlignment)Enum.Parse(typeof(ST_PenAlignment), node.Attributes["algn"].Value);
-            ctObj.custDash = new CT_DashStopList();
             foreach (XmlNode childNode in node.ChildNodes)
             {
                 if (childNode.LocalName == "noFill")
@@ -604,10 +605,6 @@ namespace NPOI.OpenXmlFormats.Dml
             if (this.custDash != null)
             {
                 this.custDash.Write(sw, "custDash");
-                //foreach (CT_DashStop x in this.custDash)
-                //{
-                //    x.Write(sw, "custDash");
-                //}
             }
             if (this.round != null)
                 sw.Write("<a:round/>");

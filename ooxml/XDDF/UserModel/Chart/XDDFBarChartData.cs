@@ -140,7 +140,6 @@ namespace NPOI.XDDF.UserModel.Chart
         {
             int index = this.series.Count;
             CT_BarSer ctSer = this.chart.AddNewSer();
-            ctSer.AddNewTx();
             ctSer.AddNewCat();
             ctSer.AddNewVal();
             ctSer.AddNewIdx().val = (uint) index;
@@ -231,10 +230,20 @@ namespace NPOI.XDDF.UserModel.Chart
             {
                 return series.cat;
             }
-            protected override CT_NumDataSource GetNumDS()
-            {
-                return series.val;
-            }
+        protected override CT_NumDataSource GetNumDS()
+        {
+            return series.val;
+        }
+
+        public void UpdateIdXVal(long val)
+        {
+            series.idx.val = (uint)val;
+        }
+
+        public void UpdateOrderVal(long val)
+        {
+            series.order.val = (uint)val;
+        }
             
         }
     }
